@@ -1,17 +1,18 @@
 import { Text, View } from "react-native"
-import { BtnCategories,TextCategories } from "./styles"
+import { BtnCategories, TextCategories } from "./styles"
 
-interface TypeProps{
+interface TypeProps {
     data: {
         id: number,
-        name:string
+        name: string,
     }
 
-    }
+}
 
-export default function Categories({data}: TypeProps) {
+export default function Categories({ data }: TypeProps) {
     return (
-        <BtnCategories>
+        
+        <BtnCategories onPress={() => console.log(data.name)}>
             <TextCategories>{data.name}</TextCategories>
         </BtnCategories>
     )

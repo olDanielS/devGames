@@ -8,5 +8,15 @@ export const Container = styled.View`
     padding: 10px;
 ` 
 export const CategoryList = styled.FlatList`
+    background-color: green;
+    height: 34px;
+` 
+export const BobyTitle = styled.Text`
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
 
 ` 
+export const Body = styled.View`
+    flex: 1;
+`
