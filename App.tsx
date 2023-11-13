@@ -1,15 +1,18 @@
-import { StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 
 import { StatusBar } from 'react-native';
 
-import Home from './src/Pages/Home';
+import StackRoutes from './src/Routes/StackRoutes';
 
 
 export default function App() {
   return (
     <>
-      <StatusBar backgroundColor='#FFF' barStyle="dark-content"/>
-      <Home/>
+      <NavigationContainer>
+        <StatusBar backgroundColor='#FFF' barStyle="dark-content" />
+        <StackRoutes />
+      </NavigationContainer>
     </>
   );
 }

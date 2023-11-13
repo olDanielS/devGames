@@ -18,7 +18,7 @@ export default function Home() {
 
 
     useEffect(() => {
-        async function handleCategories() {
+        async function handleGetCategories() {
 
             const response = await api.get(`genres?key=${API_KEY}`)
             setCategories(response.data.results)
@@ -29,7 +29,7 @@ export default function Home() {
             setTrendingGames(response.data.results)
         }
 
-        handleCategories();
+        handleGetCategories();
         handleGetGames();
     }, [])
 
