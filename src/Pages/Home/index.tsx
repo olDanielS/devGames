@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { Container, CategoryList, BobyTitle, Body } from "./styles";
 
 import Header from "../../Components/Header";
-import Categories from '../../Components/Categories';
-import Games from '../../Components/Games';
+import Categories from '../../Components/CategoriesNameList';
+import Games from '../../Components/GamesList';
 
 import api from '../../Services/api';
 import {API_KEY} from '@env';

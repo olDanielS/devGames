@@ -4,13 +4,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'react-native';
 
 import StackRoutes from './src/Routes/StackRoutes';
-
+import { background } from './src/DefaultColors';
 
 export default function App() {
   return (
     <>
       <NavigationContainer>
-        <StatusBar backgroundColor='#FFF' barStyle="dark-content" />
+        <StatusBar backgroundColor={background} barStyle="light-content" />
         <StackRoutes />
       </NavigationContainer>
     </>

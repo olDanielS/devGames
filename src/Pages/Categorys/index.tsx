@@ -4,11 +4,12 @@ import { Container, CategoryList, BobyTitle, Body } from "./styles";
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
 
-import Header from "../../Components/Header";
+import FilterCategories from '../../Components/FilterCategories';
 
 import api from '../../Services/api';
 import {API_KEY} from '@env';
 import { FlatList } from 'react-native';
+import { ActivityIndicator, View} from 'react-native';
 
 
 export default function Categorys() {
@@ -17,6 +18,8 @@ export default function Categorys() {
     const route = useRoute();
 
     const [categorie, setCategorie] = useState();
+    const [loading, setLoading] = useState(false);
+
 
     useEffect(() => {
         navigation.setOptions({
@@ -25,9 +28,9 @@ export default function Categorys() {
         console.log(route.params?.id)
 
         async function getCategoryById(){
-            const response = await api.get(`games?page_size=5&key=${API_KEY}&genres=${route.params?.id}?`)
+            const response = await api.get(`games?page_size=5&key=${API_KEY}&genres=${route.params?.id}`)
             setCategorie(response.data.results)
-            console.log(response.data.results[0])
+            setLoading(!loading)
         }
 
         getCategoryById();
@@ -37,7 +40,24 @@ export default function Categorys() {
 
     return (
         <Container>
-           
+            {
+                loading ? (
+                    <FlatList
+                       
+                       showsHorizontalScrollIndicator={false}
+                       data={categorie}
+                       keyExtractor={(item) => item.id.toString()}
+                       renderItem={({ item }) => <FilterCategories data={item} />}
+                       
+       
+                   />
+
+                ) :
+                <View style={{alignItems: 'center', justifyContent: 'center'}}>
+                    <ActivityIndicator size={32} color="#FFF"/>
+
+                </View>
+            }
         </Container>
     )
 }

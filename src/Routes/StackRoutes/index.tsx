@@ -23,6 +23,7 @@ export default function StackRoutes({props}){
             }}/>
             <Stack.Screen name="Categorys" component={Categorys} options={{
                 headerStyle:{backgroundColor: background},
+                headerLargeTitle: true,
                 headerTintColor: '#FFF',
                 title:''
             }}/>
